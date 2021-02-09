@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+    # Our web application (will be available on http://localhost:3000)
+    nodejs:
+        build: .
+        container_name: nodejs-app
+        volumes:
+          - ".:/app" # current directory on host OS will be mapped as /src/app on the container
+        ports: 
+            - "3001:3001" # open access to port 3000
+        networks:
+            - default-network               
+    
+
+networks:
+    default-network:
+        driver: bridge 
